@@ -1,0 +1,4 @@
+[
+  { "ordem": 1, "produto": "Calça Slim", "quantidade": 100, "status": "Em Produção" },
+  { "ordem": 2, "produto": "Calça Comfort", "quantidade": 50, "status": "Aguardando" }
+]
