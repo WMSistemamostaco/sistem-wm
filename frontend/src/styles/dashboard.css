@@ -1,0 +1,271 @@
+/* =====================================
+   SISTEMA WM - DASHBOARD V1
+   Autor: Wilian Mostaço
+===================================== */
+
+:root {
+  --bg: #020617;
+  --bg2: #07111f;
+  --card: #0b1728;
+  --card-hover: #10213b;
+
+  --blue: #2563eb;
+  --blue2: #3b82f6;
+  --green: #16a34a;
+  --yellow: #d97706;
+  --purple: #7c3aed;
+
+  --white: #f8fafc;
+  --text: #cbd5e1;
+  --border: rgba(255,255,255,.08);
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(180deg,#020617,#07101d);
+color:var(--white);
+overflow-x:hidden;
+}
+
+.layoutWM{
+display:flex;
+min-height:100vh;
+}
+
+/* SIDEBAR */
+.sidebar{
+width:250px;
+background:#081220;
+padding:30px 20px;
+border-right:1px solid var(--border);
+position:fixed;
+left:0;
+top:0;
+bottom:0;
+}
+
+.logo h1{
+font-size:42px;
+color:var(--blue2);
+font-weight:800;
+}
+
+.logo span{
+font-size:12px;
+color:#8fb4ff;
+letter-spacing:2px;
+text-transform:uppercase;
+}
+
+.sidebar nav{
+margin-top:50px;
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.sidebar nav a{
+padding:14px 18px;
+color:var(--text);
+border-radius:14px;
+text-decoration:none;
+transition:.25s;
+font-size:15px;
+}
+
+.sidebar nav a:hover,
+.sidebar nav .active{
+background:rgba(37,99,235,.15);
+color:white;
+border-left:4px solid var(--blue2);
+}
+
+/* MAIN */
+main{
+margin-left:250px;
+flex:1;
+padding:35px;
+}
+
+/* HEADER */
+.headerWM{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:35px;
+padding-bottom:20px;
+border-bottom:1px solid var(--border);
+}
+
+.headerWM h2{
+font-size:32px;
+margin-bottom:5px;
+}
+
+.headerWM p{
+color:#94a3b8;
+}
+
+.headerWM button{
+background:linear-gradient(90deg,var(--blue),var(--blue2));
+padding:14px 28px;
+border:none;
+border-radius:40px;
+color:white;
+font-weight:600;
+cursor:pointer;
+box-shadow:0 0 25px rgba(37,99,235,.4);
+transition:.3s;
+}
+
+.headerWM button:hover{
+transform:translateY(-3px);
+box-shadow:0 0 35px rgba(59,130,246,.7);
+}
+
+/* CARDS */
+.cardsDashboard{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+margin-bottom:40px;
+}
+
+.card{
+background:var(--card);
+padding:30px;
+border-radius:22px;
+position:relative;
+overflow:hidden;
+border:1px solid var(--border);
+transition:.3s;
+}
+
+.card::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(180deg,rgba(255,255,255,.05),transparent);
+}
+
+.card:hover{
+transform:translateY(-8px);
+background:var(--card-hover);
+}
+
+.card p{
+color:#cbd5e1;
+margin-bottom:12px;
+font-size:14px;
+}
+
+.card h1{
+font-size:44px;
+}
+
+.card.azul{border-top:4px solid var(--blue2);}
+.card.verde{border-top:4px solid var(--green);}
+.card.amarelo{border-top:4px solid var(--yellow);}
+.card.roxo{border-top:4px solid var(--purple);}
+
+/* TABELA */
+.ordersTable{
+background:var(--card);
+padding:25px;
+border-radius:25px;
+border:1px solid var(--border);
+}
+
+.ordersTable h2{
+margin-bottom:25px;
+font-size:24px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:#111f35;
+padding:16px;
+text-align:left;
+font-size:14px;
+color:#9ec5ff;
+}
+
+td{
+padding:18px 16px;
+border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+tr:hover{
+background:#0d1b2f;
+}
+
+/* STATUS */
+span.EmProdução,
+span.EmProduçao{
+background:rgba(37,99,235,.2);
+color:#60a5fa;
+padding:8px 16px;
+border-radius:20px;
+font-size:13px;
+font-weight:600;
+}
+
+span.Aguardando{
+background:rgba(217,119,6,.18);
+color:#fbbf24;
+padding:8px 16px;
+border-radius:20px;
+font-size:13px;
+font-weight:600;
+}
+
+span.EmPreparação,
+span.EmPreparacao{
+background:rgba(22,163,74,.18);
+color:#4ade80;
+padding:8px 16px;
+border-radius:20px;
+font-size:13px;
+font-weight:600;
+}
+
+span.Concluída,
+span.Concluida{
+background:rgba(124,58,237,.18);
+color:#c084fc;
+padding:8px 16px;
+border-radius:20px;
+font-size:13px;
+font-weight:600;
+}
+
+/* SCROLL */
+::-webkit-scrollbar{width:8px;}
+::-webkit-scrollbar-thumb{background:var(--blue2);border-radius:10px;}
+
+/* RESPONSIVO */
+@media(max-width:900px){
+.sidebar{width:80px;padding:20px 10px;}
+.logo span{display:none;}
+.logo h1{font-size:28px;text-align:center;}
+.sidebar nav a{font-size:0;padding:15px;}
+main{margin-left:80px;padding:20px;}
+.headerWM{flex-direction:column;align-items:flex-start;gap:20px;}
+.cardsDashboard{grid-template-columns:1fr 1fr;}
+}
+
+@media(max-width:600px){
+.cardsDashboard{grid-template-columns:1fr;}
+.ordersTable{overflow:auto;}
+.headerWM h2{font-size:26px;}
+}
